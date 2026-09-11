@@ -97,39 +97,39 @@
   </section>
 
   <!-- 4. Domain Data Table -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 w-full flex-grow">
-    <div class="border border-bordercolor rounded-lg overflow-x-auto bg-cardbg">
-      <table class="w-full text-left text-sm">
-        <thead class="bg-zinc-900/80 text-zinc-400 text-xs uppercase border-b border-bordercolor">
-          <tr>
-            <th class="py-3 px-4">Domain</th>
-            <th class="py-3 px-4">Type</th>
-            <th class="py-3 px-4">TLD Category</th>
-            <th class="py-3 px-4">Status</th>
-            <th class="py-3 px-4">Asking Price</th>
-            <th class="py-3 px-4 text-right">Action</th>
-          </tr>
-        </thead>
-        <tbody id="domain-list" class="divide-y divide-bordercolor">
-          <!-- JS 动态渲染数据 -->
-        </tbody>
-      </table>
-    </div>
-  </section>
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 w-full flex-grow">
+  <div class="border border-bordercolor rounded-lg overflow-x-auto bg-cardbg">
+    <table class="w-full text-left text-sm whitespace-nowrap min-w-max">
+      <thead class="bg-zinc-900/80 text-zinc-400 text-xs uppercase border-b border-bordercolor">
+        <tr>
+          <th class="py-3 px-4">Domain</th>
+          <th class="py-3 px-4">Type</th>
+          <th class="py-3 px-4">TLD Category</th>
+          <th class="py-3 px-4">Status</th>
+          <th class="py-3 px-4">Asking Price</th>
+          <th class="py-3 px-4 text-right">Action</th>
+        </tr>
+      </thead>
+      <tbody id="domain-list" class="divide-y divide-bordercolor">
+        <!-- JS 动态渲染数据 -->
+      </tbody>
+    </table>
+  </div>
+</section>
 
   <!-- 5. Escrow & Security Notice -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
-    <div class="border border-dashed border-bordercolor p-4 sm:p-6 rounded-lg text-xs text-zinc-400 font-mono bg-darkbg">
-      <div class="text-zinc-200 font-bold mb-2 flex items-center gap-2">
-        <span class="text-neon">[+]</span> TRUST & TRANSACTION GUARANTEE
-      </div>
-      <ul class="space-y-1 text-zinc-400 list-disc list-inside">
-        <li>All domains listed are owned directly and ready for instant transfer.</li>
-        <li>Transactions strictly processed through <strong>Escrow.com</strong>, <strong>Atom.com</strong>, or <strong>Spaceship.com</strong>.</li>
-        <li>Instant Registrar Push or AuthCode delivery upon escrow payment confirmation.</li>
-      </ul>
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12 w-full">
+  <div class="border border-dashed border-bordercolor p-4 sm:p-6 rounded-lg text-xs text-zinc-400 font-mono bg-darkbg">
+    <div class="text-zinc-200 font-bold mb-2 flex items-center gap-2">
+      <span class="text-neon">[+]</span> TRUST & TRANSACTION GUARANTEE
     </div>
-  </section>
+    <ul class="space-y-1 text-zinc-400 list-disc list-inside">
+      <li>All domains listed are owned directly and ready for instant transfer.</li>
+      <li>Transactions strictly processed through <strong>Escrow.com</strong>, <strong>Atom.com</strong>, or <strong>Spaceship.com</strong>.</li>
+      <li>Instant Registrar Push or AuthCode delivery upon escrow payment confirmation.</li>
+    </ul>
+  </div>
+</section>
 
   <!-- 6. Footer -->
   <footer class="border-t border-bordercolor py-6 text-xs text-zinc-500 bg-darkbg mt-auto">
@@ -213,19 +213,19 @@
           : `<span class="inline-flex items-center gap-1.5 text-amber-400 text-xs"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>${item.status}</span>`;
 
         tr.innerHTML = `
-          <td class="py-3.5 px-4 font-bold text-white text-base group-hover:text-neon transition-colors">
-            <span class="text-neon font-extrabold text-lg">${item.sld}</span><span class="text-zinc-400">${item.tld}</span>
-          </td>
-          <td class="py-3.5 px-4 capitalize text-zinc-400">${item.type}</td>
-          <td class="py-3.5 px-4 text-zinc-400 uppercase">${item.category}</td>
-          <td class="py-3.5 px-4">${statusBadge}</td>
-          <td class="py-3.5 px-4 font-semibold text-white">${item.price}</td>
-          <td class="py-3.5 px-4 text-right">
-            <button onclick="openModal('${item.domain}')" class="px-3 py-1.5 bg-zinc-800 hover:bg-neon hover:text-black text-white text-xs font-bold rounded transition-colors">
-              MAKE OFFER
-            </button>
-          </td>
-        `;
+  <td class="py-3.5 px-4 font-bold text-white text-base group-hover:text-neon transition-colors whitespace-nowrap">
+    <span class="text-neon font-extrabold text-lg">${item.sld}</span><span class="text-zinc-400">${item.tld}</span>
+  </td>
+  <td class="py-3.5 px-4 capitalize text-zinc-400 whitespace-nowrap">${item.type}</td>
+  <td class="py-3.5 px-4 text-zinc-400 uppercase whitespace-nowrap">${item.category}</td>
+  <td class="py-3.5 px-4 whitespace-nowrap">${statusBadge}</td>
+  <td class="py-3.5 px-4 font-semibold text-white whitespace-nowrap">${item.price}</td>
+  <td class="py-3.5 px-4 text-right whitespace-nowrap">
+    <button onclick="openModal('${item.domain}')" class="px-3 py-1.5 bg-zinc-800 hover:bg-neon hover:text-black text-white text-xs font-bold rounded transition-colors whitespace-nowrap">
+      MAKE OFFER
+    </button>
+  </td>
+`;
         tbody.appendChild(tr);
       });
     }
