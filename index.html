@@ -136,113 +136,116 @@
   </footer>
 
   <!-- Offer Modal -->
-  <div id="modal" onclick="handleModalBackdropClick(event)" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
-    <div onclick="event.stopPropagation()" class="bg-cardbg border border-bordercolor p-6 rounded-lg max-w-md w-full relative">
-      <button onclick="closeModal()" class="absolute top-4 right-4 text-zinc-500 hover:text-white">✕</button>
-      <div class="text-xs text-neon mb-1 font-bold">// MAKE AN OFFER</div>
-      <h3 id="modal-domain" class="text-3xl font-extrabold text-white mb-4">--</h3>
-      
-      <form onsubmit="handleFormSubmit(event)" class="space-y-4">
-        <div>
-          <label class="block text-xs text-zinc-400 mb-1">YOUR OFFER (USD)</label>
-          <input type="number" id="offer-amount" required placeholder="e.g. 10000" class="w-full bg-darkbg border border-bordercolor rounded px-3 py-2 text-white text-base sm:text-sm focus:outline-none focus:border-neon placeholder-zinc-600 placeholder-opacity-60">
-        </div>
-        <div>
-          <label class="block text-xs text-zinc-400 mb-1">EMAIL ADDRESS</label>
-          <input type="email" id="offer-email" required placeholder="name@company.com" class="w-full bg-darkbg border border-bordercolor rounded px-3 py-2 text-white text-base sm:text-sm focus:outline-none focus:border-neon placeholder-zinc-600 placeholder-opacity-60">
-        </div>
-        <div>
-          <label class="block text-xs text-zinc-400 mb-1">MESSAGE / COMPANY (OPTIONAL)</label>
-          <textarea id="offer-msg" rows="3" placeholder="Brief intro or requirement..." class="w-full bg-darkbg border border-bordercolor rounded px-3 py-2 text-white text-base sm:text-sm focus:outline-none focus:border-neon placeholder-zinc-600 placeholder-opacity-60"></textarea>
-        </div>
-        <button type="submit" class="w-full bg-neon text-black font-bold py-2.5 rounded hover:bg-emerald-400 transition-colors text-sm">
-          SEND OFFER
-        </button>
-      </form>
+<div id="modal" onclick="handleModalBackdropClick(event)" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
+  <div onclick="event.stopPropagation()" class="bg-cardbg border border-bordercolor p-6 rounded-lg max-w-md w-full relative">
+    <button onclick="closeModal()" class="absolute top-4 right-4 text-zinc-500 hover:text-white text-lg">✕</button>
+    <div class="text-xs text-neon mb-1 font-bold">// INQUIRE & PURCHASE</div>
+    <h3 id="modal-domain" class="text-3xl font-extrabold text-white mb-4">--</h3>
+    
+    <!-- 声明提示文本 -->
+    <p class="text-xs text-zinc-400 leading-relaxed mb-5 border-b border-bordercolor/60 pb-4">
+  Interested in acquiring this domain? Contact us via any option below for a quick response. Upon price agreement, we will initiate a secure deal for you through escrow.com or atom.com. (<span class="text-zinc-200">escrow.com</span> / <span class="text-zinc-200">atom.com</span>).
+</p>
+
+    <!-- 联系方式展示列表 -->
+    <div class="space-y-3 text-sm font-mono">
+      <div class="flex items-center justify-between bg-darkbg p-3 rounded border border-bordercolor/40">
+        <span class="text-zinc-400 text-xs font-sans">EMAIL</span>
+        <a href="mailto:sales@we.domains" class="text-neon hover:underline font-bold">sales@we.domains</a>
+      </div>
+      <div class="flex items-center justify-between bg-darkbg p-3 rounded border border-bordercolor/40">
+        <span class="text-zinc-400 text-xs font-sans">TELEGRAM</span>
+        <a href="https://t.me/wedomains" target="_blank" rel="noopener noreferrer" class="text-white hover:text-neon font-bold">@wedomains</a>
+      </div>
+      <div class="flex items-center justify-between bg-darkbg p-3 rounded border border-bordercolor/40">
+        <span class="text-zinc-400 text-xs font-sans">WHATSAPP</span>
+        <a href="https://wa.me/12345679167" target="_blank" rel="noopener noreferrer" class="text-white hover:text-neon font-bold">+1 234 567 9167</a>
+      </div>
     </div>
   </div>
+</div>
 
   <!-- JavaScript -->
   <script>
     const domains = [
-      { domain: '0.bo', sld: '0', tld: '.bo', type: 'numeric', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: '1.bo', sld: '1', tld: '.bo', type: 'numeric', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: '1.ke', sld: '1', tld: '.ke', type: 'numeric', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: '1.mr', sld: '1', tld: '.mr', type: 'numeric', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: '2.bo', sld: '2', tld: '.bo', type: 'numeric', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: '2.ls', sld: '2', tld: '.ls', type: 'numeric', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: '3.ar', sld: '3', tld: '.ar', type: 'numeric', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: '3.bo', sld: '3', tld: '.bo', type: 'numeric', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: '3.ls', sld: '3', tld: '.ls', type: 'numeric', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: '4.bo', sld: '4', tld: '.bo', type: 'numeric', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: '5.bo', sld: '5', tld: '.bo', type: 'numeric', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: '5.ls', sld: '5', tld: '.ls', type: 'numeric', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: '6.bo', sld: '6', tld: '.bo', type: 'numeric', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: '7.bo', sld: '7', tld: '.bo', type: 'numeric', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: '7.gd', sld: '7', tld: '.gd', type: 'numeric', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: '8.bo', sld: '8', tld: '.bo', type: 'numeric', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: '8.ls', sld: '8', tld: '.ls', type: 'numeric', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: '8.mr', sld: '8', tld: '.mr', type: 'numeric', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: '9.bo', sld: '9', tld: '.bo', type: 'numeric', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: '9.gd', sld: '9', tld: '.gd', type: 'numeric', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: '9.ls', sld: '9', tld: '.ls', type: 'numeric', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: '9.mr', sld: '9', tld: '.mr', type: 'numeric', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'a.ke', sld: 'a', tld: '.ke', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'a.rw', sld: 'a', tld: '.rw', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'a.bo', sld: 'a', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'b.et', sld: 'b', tld: '.et', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'b.ht', sld: 'b', tld: '.ht', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'b.bo', sld: 'b', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'c.bo', sld: 'c', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'c.ar', sld: 'c', tld: '.ar', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'd.bo', sld: 'd', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'd.im', sld: 'd', tld: '.im', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'd.gd', sld: 'd', tld: '.gd', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'e.hr', sld: 'e', tld: '.hr', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'e.bo', sld: 'e', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'e.mr', sld: 'e', tld: '.mr', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'e.td', sld: 'e', tld: '.td', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'f.gd', sld: 'f', tld: '.gd', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'f.bo', sld: 'f', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'f.af', sld: 'f', tld: '.af', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'g.mr', sld: 'g', tld: '.mr', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'g.hr', sld: 'g', tld: '.hr', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'g.bo', sld: 'g', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'h.gd', sld: 'h', tld: '.gd', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'i.ke', sld: 'i', tld: '.ke', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'i.bo', sld: 'i', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'i.mr', sld: 'i', tld: '.mr', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'i.sv', sld: 'i', tld: '.sv', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'j.ar', sld: 'j', tld: '.ar', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'j.bo', sld: 'j', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'j.im', sld: 'j', tld: '.im', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'k.ls', sld: 'k', tld: '.ls', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'k.bo', sld: 'k', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'l.bo', sld: 'l', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'l.im', sld: 'l', tld: '.im', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'l.gd', sld: 'l', tld: '.gd', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'l.ke', sld: 'l', tld: '.ke', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'n.ar', sld: 'n', tld: '.ar', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'n.bo', sld: 'n', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'p.ie', sld: 'p', tld: '.ie', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'p.mr', sld: 'p', tld: '.mr', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'p.bo', sld: 'p', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'p.gd', sld: 'p', tld: '.gd', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'q.bo', sld: 'q', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'r.bo', sld: 'r', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'r.hr', sld: 'r', tld: '.hr', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 's.bo', sld: 's', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 's.my', sld: 's', tld: '.my', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 't.sv', sld: 't', tld: '.sv', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'u.bo', sld: 'u', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'v.at', sld: 'v', tld: '.at', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'v.mr', sld: 'v', tld: '.mr', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'v.bo', sld: 'v', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'v.td', sld: 'v', tld: '.td', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'w.bo', sld: 'w', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'x.hn', sld: 'x', tld: '.hn', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'x.rw', sld: 'x', tld: '.rw', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
-{ domain: 'y.gd', sld: 'y', tld: '.gd', type: 'letters', category: 'cctld', status: 'Available', price: '$12,500', actionType: 'buy', buyUrl: 'https://www.spaceship.com' },
+      { domain: '0.bo', sld: '0', tld: '.bo', type: 'numeric', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: '1.bo', sld: '1', tld: '.bo', type: 'numeric', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: '1.ke', sld: '1', tld: '.ke', type: 'numeric', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: '1.mr', sld: '1', tld: '.mr', type: 'numeric', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: '2.bo', sld: '2', tld: '.bo', type: 'numeric', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: '2.ls', sld: '2', tld: '.ls', type: 'numeric', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: '3.ar', sld: '3', tld: '.ar', type: 'numeric', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: '3.bo', sld: '3', tld: '.bo', type: 'numeric', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: '3.ls', sld: '3', tld: '.ls', type: 'numeric', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: '4.bo', sld: '4', tld: '.bo', type: 'numeric', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: '5.bo', sld: '5', tld: '.bo', type: 'numeric', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: '5.ls', sld: '5', tld: '.ls', type: 'numeric', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: '6.bo', sld: '6', tld: '.bo', type: 'numeric', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: '7.bo', sld: '7', tld: '.bo', type: 'numeric', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: '7.gd', sld: '7', tld: '.gd', type: 'numeric', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: '8.bo', sld: '8', tld: '.bo', type: 'numeric', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: '8.ls', sld: '8', tld: '.ls', type: 'numeric', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: '8.mr', sld: '8', tld: '.mr', type: 'numeric', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: '9.bo', sld: '9', tld: '.bo', type: 'numeric', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: '9.gd', sld: '9', tld: '.gd', type: 'numeric', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: '9.ls', sld: '9', tld: '.ls', type: 'numeric', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: '9.mr', sld: '9', tld: '.mr', type: 'numeric', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'a.ke', sld: 'a', tld: '.ke', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'a.rw', sld: 'a', tld: '.rw', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'a.bo', sld: 'a', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'b.et', sld: 'b', tld: '.et', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'b.ht', sld: 'b', tld: '.ht', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'b.bo', sld: 'b', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'c.bo', sld: 'c', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'c.ar', sld: 'c', tld: '.ar', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'd.bo', sld: 'd', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'd.im', sld: 'd', tld: '.im', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'd.gd', sld: 'd', tld: '.gd', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'e.hr', sld: 'e', tld: '.hr', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'e.bo', sld: 'e', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'e.mr', sld: 'e', tld: '.mr', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'e.td', sld: 'e', tld: '.td', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'f.gd', sld: 'f', tld: '.gd', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'f.bo', sld: 'f', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'f.af', sld: 'f', tld: '.af', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'g.mr', sld: 'g', tld: '.mr', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'g.hr', sld: 'g', tld: '.hr', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'g.bo', sld: 'g', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'h.gd', sld: 'h', tld: '.gd', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'i.ke', sld: 'i', tld: '.ke', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'i.bo', sld: 'i', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'i.mr', sld: 'i', tld: '.mr', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'i.sv', sld: 'i', tld: '.sv', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'j.ar', sld: 'j', tld: '.ar', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'j.bo', sld: 'j', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'j.im', sld: 'j', tld: '.im', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'k.ls', sld: 'k', tld: '.ls', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'k.bo', sld: 'k', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'l.bo', sld: 'l', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'l.im', sld: 'l', tld: '.im', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'l.gd', sld: 'l', tld: '.gd', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'l.ke', sld: 'l', tld: '.ke', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'n.ar', sld: 'n', tld: '.ar', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'n.bo', sld: 'n', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'p.ie', sld: 'p', tld: '.ie', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'p.mr', sld: 'p', tld: '.mr', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'p.bo', sld: 'p', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'p.gd', sld: 'p', tld: '.gd', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'q.bo', sld: 'q', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'r.bo', sld: 'r', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'r.hr', sld: 'r', tld: '.hr', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 's.bo', sld: 's', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 's.my', sld: 's', tld: '.my', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 't.sv', sld: 't', tld: '.sv', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'u.bo', sld: 'u', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'v.at', sld: 'v', tld: '.at', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'v.mr', sld: 'v', tld: '.mr', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'v.bo', sld: 'v', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'v.td', sld: 'v', tld: '.td', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'w.bo', sld: 'w', tld: '.bo', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'x.hn', sld: 'x', tld: '.hn', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'x.rw', sld: 'x', tld: '.rw', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
+{ domain: 'y.gd', sld: 'y', tld: '.gd', type: 'letters', category: 'cctld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
 { domain: '1.group', sld: '1', tld: '.group', type: 'numeric', category: 'newgtld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
 { domain: '1.garden', sld: '1', tld: '.garden', type: 'numeric', category: 'newgtld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
 { domain: '1.travel', sld: '1', tld: '.travel', type: 'numeric', category: 'newgtld', status: 'Available', price: '$Inquiry', actionType: 'offer' },
@@ -311,6 +314,10 @@
   const tldUpper = item.tld.toUpperCase();
   const fullDomainUpper = item.domain.toUpperCase();
 
+  const formattedPrice = item.price.startsWith('$') 
+    ? `<span class="mr-1 text-zinc-400">$</span>${item.price.slice(1)}` 
+    : item.price;
+
   let actionButton = '';
   if (item.actionType === 'buy') {
     actionButton = `
@@ -322,7 +329,7 @@
   } else {
     actionButton = `
       <button onclick="openModal('${fullDomainUpper}')" 
-              class="px-2.5 sm:px-3 py-1.5 bg-zinc-800 hover:bg-neon hover:text-black text-white text-[11px] sm:text-xs font-bold rounded transition-colors whitespace-nowrap">
+              class="inline-block px-2.5 sm:px-3 py-1.5 bg-neon hover:bg-emerald-400 text-black text-[11px] sm:text-xs font-bold rounded transition-colors whitespace-nowrap">
         OFFER
       </button>
     `;
@@ -335,11 +342,14 @@
     <td class="py-3.5 px-4 capitalize text-zinc-400 hidden sm:table-cell">${item.type}</td>
     <td class="py-3.5 px-4 text-zinc-400 uppercase hidden sm:table-cell">${item.category}</td>
     <td class="py-3.5 px-4 hidden sm:table-cell">${statusBadge}</td>
-    <td class="py-3.5 px-2 sm:px-4 font-semibold text-white text-xs sm:text-sm truncate">${item.price}</td>
+    <td class="py-3.5 px-2 sm:px-4 font-semibold text-white text-xs sm:text-sm truncate">
+      ${formattedPrice}
+    </td>
     <td class="py-3.5 px-3 sm:px-4 text-right">
       ${actionButton}
     </td>
   `;
+
   tbody.appendChild(tr);
 });
     }
